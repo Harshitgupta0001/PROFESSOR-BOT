@@ -11,28 +11,28 @@ def is_enabled(value, default):
 
 
 # PyroClient Setup 
-API_ID = int(environ['API_ID'])
-API_HASH = environ['API_HASH']
-BOT_TOKEN = environ['BOT_TOKEN']
+API_ID = int(environ['21551881'])
+API_HASH = environ['6e83e9e1aee5accd4868dc29aa59ebaa']
+BOT_TOKEN = environ['7180724560:AAGZPlUz58gwj2-hgYx800oVKZye_SR7MYo']
 
 # Bot settings
 WEBHOOK = bool(environ.get("WEBHOOK", True)) # for web support on/off
-PICS = (environ.get('PICS' ,'https://graph.org/file/237030e4a45cddfdcfe89.jpg https://graph.org/file/9ec39a79ccdd8077e025a.jpg https://graph.org/file/540ea0d8749d4f4a00b85.jpg https://graph.org/file/01ff68915e581aad1b2d8.jpg https://graph.org/file/8a52c093ddd3d48f09280.jpg https://graph.org/file/a45e4e27b633d8faf52b8.jpg https://graph.org/file/7173094292e29fbb7f51d.jpg https://graph.org/file/5f88011e74272111747ba.jpg https://graph.org/file/237030e4a45cddfdcfe89.jpg')).split()
+PICS = (environ.get('PICS' ,'https://graph.org/file/40c1a2ff8530aeb344e80.jpg https://graph.org/file/36c35d74d71cca0de992c.jpg https://graph.org/file/bb3c79456126e8936e52f.jpg https://graph.org/file/29d71f1678a7424de4176.jpg https://graph.org/file/44af98252abe590050190.jpg https://graph.org/file/61ab97fd68763d7d8aa54.jpg https://graph.org/file/d04e3d43e1278abb2f77e.jpg https://graph.org/file/5d83b35bbf7b4d0100509.jpg https://graph.org/file/6cd394fb6e908e7368fda.jpg https://graph.org/file/114074f131059b5e9ac58.jpg https://graph.org/file/d721dd1222dce5b44d6d9.jpg https://graph.org/file/e1a35962de6f3bef4df39.jpg https://graph.org/file/26e51f5acd894a9a9082a.jpg https://graph.org/file/9d0ba3c69fc38334423c2.jpg')).split()
 UPTIME = time.time()
 
 # Admins, Channels & Users
 CACHE_TIME = int(environ.get('CACHE_TIME', 300))
-ADMINS = [int(admin) if id_pattern.search(admin) else admin for admin in environ.get('ADMINS', '').split()]
-CHANNELS = [int(ch) if id_pattern.search(ch) else ch for ch in environ.get('CHANNELS', '0').split()]
+ADMINS = [int(admin) if id_pattern.search(admin) else admin for admin in environ.get('ADMINS', '6359874284').split()]
+CHANNELS = [int(ch) if id_pattern.search(ch) else ch for ch in environ.get('CHANNELS', '-1002138330909').split()]
 auth_users = [int(user) if id_pattern.search(user) else user for user in environ.get('AUTH_USERS', '').split()]
 AUTH_USERS = (auth_users + ADMINS) if auth_users else []
-auth_channel = environ.get('AUTH_CHANNEL')
+auth_channel = environ.get('-1002221767070')
 auth_grp = environ.get('AUTH_GROUP')
 AUTH_CHANNEL = int(auth_channel) if auth_channel and id_pattern.search(auth_channel) else None
 AUTH_GROUPS = [int(ch) for ch in auth_grp.split()] if auth_grp else None
 
 # MongoDB information
-DATABASE_URL = environ.get('DATABASE_URL', "")
+DATABASE_URL = environ.get('DATABASE_URL', "mongodb+srv://Harsh:harsh@cluster0.qpzso19.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0")
 DATABASE_NAME = environ.get('DATABASE_NAME', "Cluster0")
 FILE_DB_URL = environ.get("FILE_DB_URL", DATABASE_URL)
 FILE_DB_NAME = environ.get("FILE_DB_NAME", DATABASE_NAME)
@@ -44,7 +44,7 @@ START_MESSAGE = environ.get('START_MESSAGE', script.START_TXT)
 BUTTON_LOCK_TEXT = environ.get("BUTTON_LOCK_TEXT", script.BUTTON_LOCK_TEXT)
 FORCE_SUB_TEXT = environ.get('FORCE_SUB_TEXT', script.FORCE_SUB_TEXT)
 
-WELCOM_PIC = environ.get("WELCOM_PIC", "https://graph.org/file/237030e4a45cddfdcfe89.jpg")
+WELCOM_PIC = environ.get("WELCOM_PIC", "https://graph.org/file/26e51f5acd894a9a9082a.jpg")
 WELCOM_TEXT = environ.get("WELCOM_TEXT", script.WELCOM_TEXT)
 PMFILTER = is_enabled(environ.get('PMFILTER', "True"), True)
 G_FILTER = is_enabled(environ.get("G_FILTER", "True"), True)
@@ -56,8 +56,8 @@ SHORT_URL = environ.get("SHORT_URL")
 SHORT_API = environ.get("SHORT_API")
 
 # Others
-IMDB_DELET_TIME = int(environ.get('IMDB_DELET_TIME', "300"))
-LOG_CHANNEL = int(environ.get('LOG_CHANNEL', 0))
+IMDB_DELET_TIME = int(environ.get('IMDB_DELET_TIME', "1000"))
+LOG_CHANNEL = int(environ.get('LOG_CHANNEL', '-1002241609467'))
 SUPPORT_CHAT = environ.get('SUPPORT_CHAT', 'moviesworldsupportzone')
 P_TTI_SHOW_OFF = is_enabled(environ.get('P_TTI_SHOW_OFF', "True"), True)
 PM_IMDB = is_enabled(environ.get('PM_IMDB', "True"), True)
