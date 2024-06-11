@@ -225,7 +225,17 @@ Wᴇʟᴄᴏᴍᴇ ᴛᴏ {chat}.
 🏷 Tɪᴛʟᴇ: <a href={url}>{title}</a>
 🎭 Gᴇɴʀᴇꜱ: {genres}
 📆 Yᴇᴀʀ: <a href={url}/releaseinfo>{year}</a>
-🌟 Rᴀᴛɪɴɢ: <a href={url}/ratings>{rating}</a>/10"""
+🌟 Rᴀᴛɪɴɢ: <a href={url}/ratings>{rating}</a>/10
+☀️ Languages : <code>{languages}</code>
+📀 RunTime: {runtime} Minutes
+📆 Release Info : {release_date}
+🎛 Countries : <code>{countries}</code>
+╭──────➤
+┣ HaRsHiT 🔥
+╰─────── • ◆ • ───────➤
+   For SEARCH THIS MOVIE 👇👇
+┣ @moviesworldsupportzone
+╰─────── • ◆ • ───────➤"""
    
   
  
