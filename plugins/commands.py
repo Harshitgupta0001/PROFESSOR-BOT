@@ -1,4 +1,5 @@
 import os, re, json, base64, logging, random, asyncio
+
 from Script import script
 from database.users_chats_db import db
 from pyrogram import Client, filters, enums
@@ -6,7 +7,7 @@ from pyrogram.errors import ChatAdminRequired, FloodWait
 from pyrogram.types import InlineKeyboardButton, InlineKeyboardMarkup
 from database.ia_filterdb import Media, get_file_details, unpack_new_file_id
 from info import CHANNELS, ADMINS, AUTH_CHANNEL, LOG_CHANNEL, PICS, BATCH_FILE_CAPTION, CUSTOM_FILE_CAPTION, PROTECT_CONTENT, START_MESSAGE, FORCE_SUB_TEXT, SUPPORT_CHAT
-from utils import get_settings, get_size, is_subscribed, save_group_settings, temp, react_msg
+from utils import get_settings, get_size, is_subscribed, save_group_settings, temp
 from database.connections_mdb import active_connection
 
 logger = logging.getLogger(__name__)
@@ -14,10 +15,6 @@ BATCH_FILES = {}
 
 @Client.on_message(filters.command("start") & filters.incoming)
 async def start(client, message):
-    try:
-        await react_msg(client, message)
-    except:
-        pass
     if message.chat.type in [enums.ChatType.GROUP, enums.ChatType.SUPERGROUP]:
         buttons = [[           
             InlineKeyboardButton('📢 Uᴩᴅᴀᴛᴇꜱ 📢', url=f'https://t.me/{SUPPORT_CHAT}')
@@ -38,7 +35,7 @@ async def start(client, message):
         buttons = [[
             InlineKeyboardButton("➕️ Aᴅᴅ Mᴇ Tᴏ Yᴏᴜʀ Cʜᴀᴛ ➕", url=f"http://t.me/{temp.U_NAME}?startgroup=true")
             ],[
-            InlineKeyboardButton("Sᴇᴀʀᴄʜ 🔎", switch_inline_query_current_chat=''),
+            InlineKeyboardButton("Sᴇᴀʀᴄʜ 🔎", switch_inline_query_current_chat=''), 
             InlineKeyboardButton("Cʜᴀɴɴᴇʟ 🔈", url="https://t.me/moviesworldupdates")
             ],[      
             InlineKeyboardButton("Hᴇʟᴩ 🕸️", callback_data="help"),
@@ -74,7 +71,7 @@ async def start(client, message):
         buttons = [[
             InlineKeyboardButton("➕️ Aᴅᴅ Mᴇ Tᴏ Yᴏᴜʀ Cʜᴀᴛ ➕", url=f"http://t.me/{temp.U_NAME}?startgroup=true")
             ],[
-            InlineKeyboardButton("Sᴇᴀʀᴄʜ 🔎", switch_inline_query_current_chat=''),
+            InlineKeyboardButton("Sᴇᴀʀᴄʜ 🔎", switch_inline_query_current_chat=''), 
             InlineKeyboardButton("Cʜᴀɴɴᴇʟ 🔈", url="https://t.me/moviesworldupdates")
             ],[      
             InlineKeyboardButton("Hᴇʟᴩ 🕸️", callback_data="help"),
@@ -390,6 +387,5 @@ async def geg_template(client, message):
     settings = await get_settings(grp_id)
     template = settings['template']
     await sts.edit(f"Cᴜʀʀᴇɴᴛ Tᴇᴍᴘʟᴀᴛᴇ Fᴏʀ {title} Iꜱ\n\n{template}")
-
 
 
