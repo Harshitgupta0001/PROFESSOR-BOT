@@ -359,6 +359,46 @@ async def admin_check(message: Message) -> bool:
 async def admin_filter(filt, client, message):
     return await admin_check(message)
 
+async def react_msg(client, message):
+    emojis = [
+        "👍",
+        "❤",
+        "🔥",
+        "🥰",
+        "👏",
+        "😁",
+        "🤔",
+        "😱",
+        "🎉",
+        "🤩",
+        "🤡",
+        "😍",
+        "❤‍🔥",
+        "🌚",
+        "🤣",
+        "⚡",
+        "🏆",
+        "🤨",
+        "😐",
+        "😈",
+        "🤓",
+        "👻",
+        "😇",
+        "🤝",
+        "🤗",
+        "🫡",
+        "🎅",
+        "🎄",
+        "🆒",
+        "😘",
+        "😎",
+    ]
+    rnd_emoji = random.choice(emojis)
+    await client.send_reaction(
+        chat_id=message.chat.id, message_id=message.id, emoji=rnd_emoji, big=True
+    )
+    return
+
 
 
 
