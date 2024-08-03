@@ -40,7 +40,7 @@ async def start(client, message):
             InlineKeyboardButton("Hᴇʟᴩ 🕸️", callback_data="help"),
             InlineKeyboardButton("Aʙᴏᴜᴛ ✨", callback_data="about")
             ],[
-            InlineKeyboardButton("🔈 𝙳𝙸𝚂𝙲𝙻𝙰𝙸𝙼𝙴𝚁 🔈", url="https://graph.org/vTelegraphBot-08-03-5")
+            InlineKeyboardButton("❗ 𝙳𝙸𝚂𝙲𝙻𝙰𝙸𝙼𝙴𝚁 ❗", url="https://graph.org/vTelegraphBot-08-03-7")
         ]]
         m = await message.reply_sticker("CAACAgQAAxkBAAIiVGatDAEu9vh_zk2OfRrz6tlJ2DIlAAJEDgACNptBUm3ynzfB84N4HgQ") 
         await asyncio.sleep(3) 
@@ -75,6 +75,8 @@ async def start(client, message):
             ],[      
             InlineKeyboardButton("Hᴇʟᴩ 🕸️", callback_data="help"),
             InlineKeyboardButton("Aʙᴏᴜᴛ ✨", callback_data="about")
+            ],[
+            InlineKeyboardButton("❗ 𝙳𝙸𝚂𝙲𝙻𝙰𝙸𝙼𝙴𝚁 ❗", url="https://graph.org/vTelegraphBot-08-03-7")
         ]]
         m = await message.reply_sticker("CAACAgQAAxkBAAIiVGatDAEu9vh_zk2OfRrz6tlJ2DIlAAJEDgACNptBUm3ynzfB84N4HgQ")
         await asyncio.sleep(2)
