@@ -41,7 +41,8 @@ async def start(client, message):
             InlineKeyboardButton("Aʙᴏᴜᴛ ✨", callback_data="about")
         ]]
         m = await message.reply_sticker("CAACAgQAAxkBAAIiVGatDAEu9vh_zk2OfRrz6tlJ2DIlAAJEDgACNptBUm3ynzfB84N4HgQ") 
-        await asyncio.sleep(2)
+        await asyncio.sleep(3) 
+async def send_spoiler_image(PICS):
         await message.reply_photo(photo=random.choice(PICS), caption=START_MESSAGE.format(user=message.from_user.mention, bot=client.mention), reply_markup=InlineKeyboardMarkup(buttons), parse_mode=enums.ParseMode.HTML)
         return await m.delete()
         
