@@ -1,4 +1,4 @@
-import os, re, json, base64, logging, random, asyncio, time, datetime, pytz
+import os, re, json, base64, logging, random, asyncio
 
 from Script import script
 from database.users_chats_db import db
@@ -9,10 +9,9 @@ from database.ia_filterdb import Media, get_file_details, unpack_new_file_id
 from info import CHANNELS, ADMINS, AUTH_CHANNEL, LOG_CHANNEL, PICS, BATCH_FILE_CAPTION, CUSTOM_FILE_CAPTION, PROTECT_CONTENT, START_MESSAGE, FORCE_SUB_TEXT, SUPPORT_CHAT
 from utils import get_settings, get_size, is_subscribed, save_group_settings, temp
 from database.connections_mdb import active_connection
-from datetime import datetime
 logger = logging.getLogger(__name__)
 BATCH_FILES = {}
-TIMEZONE = "Asia/Kolkata"
+
 
 @Client.on_message(filters.command("start") & filters.incoming)
 async def start(client, message):
@@ -43,20 +42,9 @@ async def start(client, message):
             ],[
             InlineKeyboardButton("❗ 𝙳𝙸𝚂𝙲𝙻𝙰𝙸𝙼𝙴𝚁 ❗", url="https://graph.org/vTelegraphBot-08-03-7")
         ]]
-        reply_markup = InlineKeyboardMarkup(buttons)
-        current_time = datetime.now(pytz.timezone(TIMEZONE))
-        curr_time = current_time.hour        
-        if curr_time < 12:
-            gtxt = "<b>ɢᴏᴏᴅ ᴍᴏʀɴɪɴɢ ☕</b>" 
-        elif curr_time < 17:
-            gtxt = "<b>ɢᴏᴏᴅ ᴀғᴛᴇʀɴᴏᴏɴ 😈</b>" 
-        elif curr_time < 21:
-            gtxt = "<b>ɢᴏᴏᴅ ᴇᴠᴇɴɪɴɢ 🌇</b>"
-        else:
-            gtxt = "<b>ɢᴏᴏᴅ ɴɪɢʜᴛ 🥱</b>"
         m = await message.reply_sticker("CAACAgQAAxkBAAIiVGatDAEu9vh_zk2OfRrz6tlJ2DIlAAJEDgACNptBUm3ynzfB84N4HgQ") 
         await asyncio.sleep(3) 
-        await message.reply_photo(photo=random.choice(PICS), caption=START_MESSAGE.format(user=message.from_user.mention, gtxt, bot=client.mention), parse_mode=enums.ParseMode.HTML, has_spoiler=True)
+        await message.reply_photo(photo=random.choice(PICS), caption=START_MESSAGE.format(user=message.from_user.mention, bot=client.mention), parse_mode=enums.ParseMode.HTML, has_spoiler=True)
         return await m.delete()
         
     if AUTH_CHANNEL and not await is_subscribed(client, message):
