@@ -43,9 +43,20 @@ async def start(client, message):
             ],[
             InlineKeyboardButton("❗ 𝙳𝙸𝚂𝙲𝙻𝙰𝙸𝙼𝙴𝚁 ❗", url="https://graph.org/vTelegraphBot-08-03-7")
         ]]
+        reply_markup = InlineKeyboardMarkup(buttons)
+        current_time = datetime.now(pytz.timezone(TIMEZONE))
+        curr_time = current_time.hour        
+        if curr_time < 12:
+            gtxt = "<b>ɢᴏᴏᴅ ᴍᴏʀɴɪɴɢ ☕</b>" 
+        elif curr_time < 17:
+            gtxt = "<b>ɢᴏᴏᴅ ᴀғᴛᴇʀɴᴏᴏɴ 😈</b>" 
+        elif curr_time < 21:
+            gtxt = "<b>ɢᴏᴏᴅ ᴇᴠᴇɴɪɴɢ 🌇</b>"
+        else:
+            gtxt = "<b>ɢᴏᴏᴅ ɴɪɢʜᴛ 🥱</b>"
         m = await message.reply_sticker("CAACAgQAAxkBAAIiVGatDAEu9vh_zk2OfRrz6tlJ2DIlAAJEDgACNptBUm3ynzfB84N4HgQ") 
         await asyncio.sleep(3) 
-        await message.reply_photo(photo=random.choice(PICS), caption=START_MESSAGE.format(user=message.from_user.mention, bot=client.mention), reply_markup=InlineKeyboardMarkup(buttons), parse_mode=enums.ParseMode.HTML, has_spoiler=True)
+        await message.reply_photo(photo=random.choice(PICS), caption=START_MESSAGE.format(user=message.from_user.mention, gtxt, bot=client.mention), parse_mode=enums.ParseMode.HTML, has_spoiler=True)
         return await m.delete()
         
     if AUTH_CHANNEL and not await is_subscribed(client, message):
@@ -79,17 +90,7 @@ async def start(client, message):
             ],[
             InlineKeyboardButton("❗ 𝙳𝙸𝚂𝙲𝙻𝙰𝙸𝙼𝙴𝚁 ❗", url="https://graph.org/vTelegraphBot-08-03-7")
         ]]
-        current_time = datetime.now(pytz.timezone(TIMEZONE))
-        curr_time = current_time.hour        
-        if curr_time < 12:
-            gtxt = "<b>ɢᴏᴏᴅ ᴍᴏʀɴɪɴɢ ☕</b>" 
-        elif curr_time < 17:
-            gtxt = "<b>ɢᴏᴏᴅ ᴀғᴛᴇʀɴᴏᴏɴ 😈</b>" 
-        elif curr_time < 21:
-            gtxt = "<b>ɢᴏᴏᴅ ᴇᴠᴇɴɪɴɢ 🌇</b>"
-        else:
-            gtxt = "<b>ɢᴏᴏᴅ ɴɪɢʜᴛ 🥱</b>"
-        m = await message.reply_sticker("CAACAgQAAxkBAAIiVGatDAEu9vh_zk2OfRrz6tlJ2DIlAAJEDgACNptBUm3ynzfB84N4HgQ")
+         m = await message.reply_sticker("CAACAgQAAxkBAAIiVGatDAEu9vh_zk2OfRrz6tlJ2DIlAAJEDgACNptBUm3ynzfB84N4HgQ")
         await asyncio.sleep(2)
         await message.reply_photo(photo=random.choice(PICS), caption=START_MESSAGE.format(user=message.from_user.mention, bot=client.mention), reply_markup=InlineKeyboardMarkup(buttons), parse_mode=enums.ParseMode.HTML, has_spoiler=True)
         return await m.delete()
